@@ -5,6 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from langserve import add_routes
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.tools import tool
+from langchain.agents import create_agent
 
 app = FastAPI()
 
