@@ -1,10 +1,12 @@
 import os
-from flask import Flask, request, jsonify, render_template_string
+
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from langserve import add_routes
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.tools import tool
-from langchain.agents import create_agent
 
-app = Flask(__name__)
+app = FastAPI()
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 if not GEMINI_API_KEY:
